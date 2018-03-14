@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<style>
+			#table-main-content { 
+				height: 50vh;
+				overflow: auto;
+			}
+			#table-main-content>div  {
+				float: left;
+			}
+			table {
+				border: red 1px solid;
+			}
+			table tr td,
+			table tr th {
+				border: #eee 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="table-main-content">
+			<div id="table-div-1">
+				<table  cellpadding="10px">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Header 1</th>
+							<th>Header 2</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="table-div-2">
+				<table cellpadding="10px">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Header 1</th>
+							<th>Header 2</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>a</td>
+							<td>b</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var mainDiv = document.getElementById("table-main-content");
+			// Get all the tables
+			var tables = document.querySelectorAll("#table-main-content table");
+			for (var i=0; i<tables.length; i++) {
+				var table = tables[i];
+				var newTable = document.createElement("table");
+				var newThead = document.createElement("thead");
+				newThead.innerHTML = table.tHead.innerHTML;
+				table.parentNode.insertBefore(newTable, table);
+				newTable.appendChild(newThead);
+
+				var viewportOffset = table.getBoundingClientRect();
+				// these are relative to the viewport, i.e. the window
+				var top = viewportOffset.top;
+				var left = viewportOffset.left;
+				newTable.style.position = "fixed";
+				newTable.style.top      = top  + "px";
+				newTable.style.left     = left + "px";
+				newTable.style.display  = "none";
+
+				// Okay after appending set the new width to
+				// each column
+				var headCells = newTable.tHead.rows[0].cells;
+				for (var j = 0; j < headCells.length; j++) {
+					headCells[j].style.width = table.tBodies[0].rows[0].cells[j].clientWidth + "px";
+				} 
+				newTable.style.width = table.offsetWidth+"px";
+				newTable.className = "fixed-table-header";
+				(function(tb, newTb) {
+					var tableTop = tb.offsetTop;
+					mainDiv.addEventListener("scroll", function() {
+						var scroll   = mainDiv.scrollTop;
+						if (scroll >= tableTop) {
+							newTb.style.display = "block";
+						} else {
+							newTb.style.display = "none";
+						}
+					});
+				})(table, newTable);
+
+			} 
+		</script>
+	</body>
+</html>
